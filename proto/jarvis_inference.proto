@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package jarvis;
+
+option java_package = "com.jarvis.ai.proto";
+option java_multiple_files = true;
+
+// JARVIS Inference Service — Cloud gRPC API
+service JarvisInferenceService {
+    // Standard inference
+    rpc Infer (InferRequest) returns (InferResponse);
+
+    // Streaming inference (token by token)
+    rpc InferStream (InferRequest) returns (stream InferToken);
+
+    // Scene analysis from camera frame
+    rpc AnalyzeScene (SceneRequest) returns (SceneResponse);
+
+    // Health check
+    rpc HealthCheck (HealthRequest) returns (HealthResponse);
+}
+
+message InferRequest {
+    repeated Message messages = 1;
+    string system_prompt = 2;
+    repeated ToolDef tools = 3;
+    int32 max_tokens = 4;
+    float temperature = 5;
+    float top_p = 6;
+    string model = 7; // e.g., "jarvis-1t", "jarvis-405b", "jarvis-70b"
+}
+
+message InferResponse {
+    string text = 1;
+    repeated ToolCallMsg tool_calls = 2;
+    int32 tokens_used = 3;
+    int64 inference_time_ms = 4;
+    string model_used = 5;
+}
+
+message InferToken {
+    string token = 1;
+    bool is_final = 2;
+    int32 token_index = 3;
+}
+
+message Message {
+    string role = 1;    // "user", "assistant", "system", "tool"
+    string content = 2;
+}
+
+message ToolDef {
+    string name = 1;
+    string description = 2;
+    string parameters_json = 3;
+}
+
+message ToolCallMsg {
+    string name = 1;
+    string arguments_json = 2;
+}
+
+message SceneRequest {
+    bytes frame = 1;           // JPEG/PNG encoded image
+    string model = 2;          // Vision model to use
+    repeated string queries = 3; // Specific questions about the scene
+}
+
+message SceneResponse {
+    string description = 1;
+    repeated DetectedObject objects = 2;
+    repeated string labels = 3;
+    string ocr_text = 4;
+}
+
+message DetectedObject {
+    string label = 1;
+    float confidence = 2;
+    BoundingBox bbox = 3;
+}
+
+message BoundingBox {
+    float x = 1;
+    float y = 2;
+    float width = 3;
+    float height = 4;
+}
+
+message HealthRequest {}
+
+message HealthResponse {
+    bool healthy = 1;
+    string version = 2;
+    repeated ModelInfo loaded_models = 3;
+    int64 uptime_seconds = 4;
+}
+
+message ModelInfo {
+    string name = 1;
+    int64 parameters = 2;
+    string status = 3;   // "loaded", "loading", "unloaded"
+    float memory_gb = 4;
+}

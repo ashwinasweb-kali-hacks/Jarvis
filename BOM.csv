@@ -1,0 +1,15 @@
+Item,Component,Model_Specification,Category,Quantity,Unit_Price_USD,Total_Price_USD,Purchase_Link
+1,Core Edge Microcontroller,Seeed Studio XIAO ESP32S3 Sense (8MB PSRAM + OV2640 Cam + Mic),Compute,1,14.99,14.99,https://www.seeedstudio.com/XIAO-ESP32S3-Sense-p-5639.html
+2,Neural Edge Accelerator,Raspberry Pi Zero 2 W (Quad-Core Cortex-A53 @ 1.0GHz 512MB RAM),Compute,1,15.00,15.00,https://www.pishop.us/product/raspberry-pi-zero-2-w/
+3,Storage Media,SanDisk Extreme 64GB MicroSDXC UHS-I U3 V30,Storage,1,11.99,11.99,https://www.amazon.com/dp/B07FCMBLV6
+4,Digital Audio Amplifier,Adafruit MAX98357A I2S 3.2W Class D Mono Amplifier,Audio,1,5.95,5.95,https://www.adafruit.com/product/3421
+5,Micro Speaker Transducer,Mini Bone Conduction / Bone Resonator Transducer 8 Ohm 1W,Audio,1,8.50,8.50,https://www.adafruit.com/product/1674
+6,MEMS Microphone Array,INMP441 Omnidirectional Digital I2S Microphone Module,Audio,2,3.50,7.00,https://www.amazon.com/dp/B08M93XQ76
+7,Haptic Feedback Driver,Adafruit DRV2605L Haptic Controller + Linear Resonant Actuator,Haptics,1,7.95,7.95,https://www.adafruit.com/product/2305
+8,Environmental & IMU Sensor,Adafruit BME680 Temperature Pressure Humidity Gas + 6-DOF IMU,Sensors,1,22.50,22.50,https://www.adafruit.com/product/3660
+9,Battery Management System,Adafruit Micro-Lipo USB-C Charger + DW01A Protection Circuit,Power,1,6.95,6.95,https://www.adafruit.com/product/4410
+10,LiPo Battery Cell,PKCELL 3.7V 1200mAh Lithium Polymer Battery with JST-PH 2.0mm,Power,1,9.99,9.99,https://www.amazon.com/dp/B07BTTR1H1
+11,Custom Wearable Enclosure,High-detail SLA/PETG 3D Printed Pod & Glasses Temple Clip-on,Chassis,1,15.00,15.00,Custom Design (Printables / Onshape STL)
+12,Cabling & Interconnects,Ultra-thin enamel wire + 0.5mm FPC flex ribbon + JST micro connectors,Wiring,1,8.00,8.00,Internal compact wearable routing
+13,Mounting & Fasteners,M1.4 & M2 stainless micro machine screws + neodymium magnetic mount,Hardware,1,6.00,6.00,Clip-on temple attachment
+,,,,Total BOM Funding Requested:,139.82,139.82,Hack Club Forge Hardware Grant

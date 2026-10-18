@@ -1,0 +1,72 @@
+# JARVIS Configuration
+
+# ========================
+# Inference Settings
+# ========================
+
+[inference]
+# Local model (on-device)
+local_model = "jarvis-7b-q4.onnx"
+local_model_path = "/data/local/tmp/models/"
+
+# Cloud inference
+cloud_endpoint = "grpc://jarvis-cloud.example.com:50051"
+cloud_model = "jarvis-1t"
+cloud_api_key = "YOUR_API_KEY_HERE"
+
+# Inference routing
+default_mode = "auto"  # auto, local, hybrid, cloud
+fallback_chain = ["cloud", "hybrid", "local"]
+
+# ========================
+# Voice Settings
+# ========================
+
+[voice]
+wake_word = "hey jarvis"
+stt_model = "whisper-small"
+tts_model = "piper-en-high"
+tts_voice = "en_US-amy-high"
+continuous_listening = true
+silence_threshold = 500
+silence_duration_ms = 1500
+max_recording_seconds = 30
+sample_rate = 16000
+
+# ========================
+# Glasses Settings
+# ========================
+
+[glasses]
+auto_connect = true
+camera_enabled = true
+microphone_enabled = true
+hud_enabled = true
+stream_quality = "high"  # low, medium, high, max
+hud_font_size = 14
+hud_position = "top_right"
+hud_color = "#FFFFFF"
+hud_duration_ms = 5000
+
+# ========================
+# Security Settings
+# ========================
+
+[security]
+encryption = "aes-256-gcm"
+ble_pairing = "secure"
+cloud_tls = true
+local_data_encryption = true
+api_rate_limit = 100  # requests per minute
+
+# ========================
+# Performance Settings
+# ========================
+
+[performance]
+use_npu = true
+use_gpu = true
+num_threads = 8
+kv_cache_size_mb = 512
+max_context_tokens = 8192
+batch_timeout_ms = 50
