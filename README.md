@@ -1,12 +1,17 @@
-# 🕶️ JARVIS — AI Assistant for Ray-Ban Meta Glasses & Pixel Phone
+# 🕶️ JARVIS — Wearable Edge AI Hardware Bridge & AI Assistant
 
-> Run 1 Trillion Parameter Models on Mobile via Distributed Inference & Edge AI
+[![Hack Club Forge](https://img.shields.io/badge/Hack%20Club-Forge%20Hardware%20Grant-orange.svg)](https://forge.hackclub.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Hardware: Open Source](https://img.shields.io/badge/Hardware-Open%20Source-brightgreen.svg)](CAD/)
 
-## Overview
+<p align="center">
+  <img src="assets/jarvis_hardware_render.jpg" alt="JARVIS Wearable Hardware Bridge Render" width="100%" />
+</p>
 
-JARVIS is a wearable AI assistant that runs on **Ray-Ban Meta Smart Glasses** paired with a **Google Pixel phone**. It leverages distributed inference, model sharding, and edge computing to run massive language models (up to 1T parameters) through a hybrid local + cloud architecture.
+> **Wearable Edge AI Hardware Bridge for Ray-Ban Meta Smart Glasses & Pixel Phone**  
+> Custom 3D-printed snap-fit hardware pod with ESP32-S3, dual MEMS beamforming mics, bone conduction acoustic transducer, I2C environmental sensor telemetry, and distributed tensor inference.
 
-## Architecture
+## 🛠️ Hardware & Edge Architecture
 
 ```
 ┌─────────────────────┐     BLE/WiFi     ┌─────────────────────┐
