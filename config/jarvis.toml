@@ -1,13 +1,71 @@
-# JARVIS Configuration
+# JARVIS Configuration File
+# Wearable Edge AI Hardware Bridge & Assistant Ecosystem
+
+# ========================
+# Host Device (Smartphone)
+# ========================
+
+[host_device]
+model = "Google Pixel 8"
+codename = "shiba"
+soc = "Google Tensor G3"
+npu_engine = "NNAPI / Google Tensor TPU"
+ram_gb = 8
+storage_gb = 128
+os_version = "Android 14 / Android 15"
+ble_priority = "high_priority"  # BluetoothGatt.CONNECTION_PRIORITY_HIGH
+thermal_governor = "adaptive"
+battery_optimization = "unrestricted"
+
+# ========================
+# Smart Glasses Settings
+# ========================
+
+[glasses]
+model = "Ray-Ban Meta Smart Glasses"
+edition = "Shiny Chalk White Edition"
+frame_type = "Wayfarer / Skyler White Finish"
+auto_connect = true
+camera_enabled = true
+camera_resolution = "1080p30"  # 1080p @ 30fps streaming, 12MP photos
+microphone_enabled = true
+mic_array_channels = 5         # 5-mic beamforming array
+speaker_enabled = true         # Directional open-ear speakers
+hud_enabled = true
+stream_quality = "high"        # low, medium, high, max
+hud_font_size = 14
+hud_position = "top_right"
+hud_color = "#FFFFFF"          # Bright white HUD font
+hud_duration_ms = 5000
+ble_device_name = "Ray-Ban Meta White"
+ble_service_uuid = "0000fe00-0000-1000-8000-00805f9b34fb"
+
+# ========================
+# Wearable Pod Bridge (ESP32-S3)
+# ========================
+
+[wearable_pod]
+model = "JARVIS Hardware Pod v2.4"
+mcu = "Seeed Studio XIAO ESP32-S3 Sense"
+dual_core_freq_mhz = 240
+psram_mb = 8
+temple_clip_mount = "Ray-Ban White Eyewear Temple Arm"
+haptic_driver = "DRV2605L"
+audio_dac = "MAX98357A I2S Mono 3.2W"
+transducer = "1W 8-Ohm Bone Conduction"
+env_sensor = "BME680 (VOC, Temp, Humidity, Pressure)"
+imu_sensor = "ICM-42688 6-DOF"
+battery_capacity_mah = 1200
 
 # ========================
 # Inference Settings
 # ========================
 
 [inference]
-# Local model (on-device)
+# Local model (on Google Pixel 8 Tensor NPU)
 local_model = "jarvis-7b-q4.onnx"
 local_model_path = "/data/local/tmp/models/"
+npu_acceleration = true
 
 # Cloud inference
 cloud_endpoint = "grpc://jarvis-cloud.example.com:50051"
@@ -32,21 +90,6 @@ silence_threshold = 500
 silence_duration_ms = 1500
 max_recording_seconds = 30
 sample_rate = 16000
-
-# ========================
-# Glasses Settings
-# ========================
-
-[glasses]
-auto_connect = true
-camera_enabled = true
-microphone_enabled = true
-hud_enabled = true
-stream_quality = "high"  # low, medium, high, max
-hud_font_size = 14
-hud_position = "top_right"
-hud_color = "#FFFFFF"
-hud_duration_ms = 5000
 
 # ========================
 # Security Settings

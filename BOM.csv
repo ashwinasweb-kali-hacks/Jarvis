@@ -12,4 +12,7 @@ Item,Component,Model_Specification,Category,Quantity,Unit_Price_USD,Total_Price_
 11,Custom Wearable Enclosure,High-detail SLA/PETG 3D Printed Pod & Glasses Temple Clip-on,Chassis,1,15.00,15.00,Custom Design (Printables / Onshape STL)
 12,Cabling & Interconnects,Ultra-thin enamel wire + 0.5mm FPC flex ribbon + JST micro connectors,Wiring,1,8.00,8.00,Internal compact wearable routing
 13,Mounting & Fasteners,M1.4 & M2 stainless micro machine screws + neodymium magnetic mount,Hardware,1,6.00,6.00,Clip-on temple attachment
-,,,,Total BOM Funding Requested:,139.82,139.82,Hack Club Forge Hardware Grant
+,,,,Subtotal Custom Wearable Pod (Forge Hardware Grant):,139.82,139.82,Hack Club Forge Hardware Grant Tier 2
+14,Host Smartphone (Compute Core),Google Pixel 8 (Google Tensor G3 NPU + 8GB RAM + 128GB - Shiba),Host Compute (BYOD),1,699.00,699.00,https://store.google.com/product/pixel_8 (Primary Android Host Node)
+15,Smart Wearable Eyewear,Ray-Ban Meta Smart Glasses (Shiny Chalk White Edition + 12MP Camera + 5-Mic Array),Wearable Node (BYOD),1,299.00,299.00,https://www.meta.com/smart-glasses/ (Primary Smart Glass Node)
+,,,,Total JARVIS Hardware Ecosystem Value (Pod + Pixel 8 + Ray-Ban White Glass):,1137.82,1137.82,Full Wearable Edge AI System

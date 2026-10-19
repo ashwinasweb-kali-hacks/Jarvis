@@ -43,11 +43,11 @@ While high-end wearable glasses feature great optics and microphones, their onbo
             ▲                                      ▲
             │ BLE 5.0 Low Latency                  │ Wi-Fi 802.11 b/g/n
             ▼                                      ▼
-┌──────────────────────┐               ┌─────────────────────────────────┐
-│ Ray-Ban Meta Glasses │               │ Google Pixel Phone & Cloud Edge │
-│ - Camera Framefeed   │               │ - Model Sharding Engine         │
-│ - Ambient Mic / HUD  │               │ - gRPC Protocol Hub             │
-└──────────────────────┘               └─────────────────────────────────┘
+┌─────────────────────────────────────────┐               ┌─────────────────────────────────┐
+│ Ray-Ban Meta Smart Glasses (Chalk White)│               │ Google Pixel 8 & Cloud Edge     │
+│ - 12MP Camera Framefeed (1080p@30fps)   │               │ - Tensor G3 Edge TPU Inference  │
+│ - 5-Mic Beamforming / Open-Ear Speakers │               │ - gRPC Protocol Hub & Android   │
+└─────────────────────────────────────────┘               └─────────────────────────────────┘
 ```
 
 ---

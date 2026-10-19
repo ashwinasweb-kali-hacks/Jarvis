@@ -34,6 +34,13 @@ class GlassesBridge(private val context: Context) {
         const val HUD_CHAR_UUID = "0000fe03-0000-1000-8000-00805f9b34fb"
         const val SENSOR_CHAR_UUID = "0000fe04-0000-1000-8000-00805f9b34fb"
         const val CONTROL_CHAR_UUID = "0000fe05-0000-1000-8000-00805f9b34fb"
+
+        // Supported Ecosystem Hardware Profiles
+        const val HOST_DEVICE_MODEL = "Google Pixel 8"
+        const val HOST_SOC_PLATFORM = "Google Tensor G3 (TPU/NPU Optimized)"
+        const val SMART_GLASSES_MODEL = "Ray-Ban Meta Smart Glasses"
+        const val SMART_GLASSES_COLORWAY = "Shiny Chalk White Edition"
+        const val BLE_DEVICE_NAME_FILTER = "Ray-Ban Meta"
     }
 
     enum class Quality { LOW, MEDIUM, HIGH, MAX }
