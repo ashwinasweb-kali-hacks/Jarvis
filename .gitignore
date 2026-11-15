@@ -1,0 +1,37 @@
+# ---- local state & secrets -------------------------------------------------
+# The daemon keeps keys, settings and voices outside the repo (~/.jarvis), but
+# never commit them if a copy lands here.
+keys.json
+*.key
+.env
+
+# ---- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# ---- editor / OS -----------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# ---- build artefacts -------------------------------------------------------
+*.ppm
+extracted_*
+vmlinux_raw
+patched_w12
+*.iso
+*.cpio
+iso_build_stage/
+iso-staging/
+gateway/
+gateway/.9router-password
+
+# ---- runtime logs & backups ------------------------------------------------
+*.log
+shell/index.html.backup-*
+shell/index.html.bak*
+*.backup-*
