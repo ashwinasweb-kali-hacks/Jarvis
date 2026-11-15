@@ -249,3 +249,11 @@ next_phase: completed
     - TTS (local pyttsx3): ~309ms
     - Total offline conversation turn: **under 2.4s total**, 100% offline with zero internet.
   - Tests: `tests/test_offline_full.py` added and passing. Suite: **330 passed in 22s**.
+
+- [x] Published to GitHub (15-11-2026):
+  - Repository: https://github.com/ashwinasweb-kali-hacks/Jarvis (branch `main`, commit `895d606`).
+  - The previous repo history was wiped; this is a single fresh commit (165 files, ~8 MB).
+  - Pre-publish cleanup: personal phone numbers replaced with placeholders, backup
+    copies / caches / venv ignored, `.gitignore` rewritten, README status table updated.
+  - `tests/test_offline_full.py` now skips when Ollama is not running instead of failing.
+  - Suite: **330 passed** before the push.
