@@ -1,14 +1,24 @@
 # JARVIS-OS
 
-> A fan-made, local-first AI assistant OS in the spirit of Tony Stark's workshop.
+> A fan-made, local-first AI assistant OS in the spirit of Tony Stark's workshop,
+> built into my own smart glasses rather than someone else's headset.
 
-JARVIS-OS replaces the desktop with a voice-first holographic HUD: floating cyan
-glass panels, a Three.js quantum-core hologram, WebXR support for standalone
-headsets (Meta Quest 3), a local speech pipeline, and a brain that answers from
-free cloud models **or** a fully offline GGUF model.
+JARVIS-OS is two things in one repo: the software (voice-first HUD, local + cloud
+brain, PC control) and the hardware build that carries it - a 4K60 camera, a
+6 TOPS RK3576 board and a five-sensor stack inside a PETG frame, ~91 g, ~8 h of
+runtime, ₹50,000 all in.
+
+The HUD itself is a floating cyan console: Spline stage, glass panels, a Three.js
+workshop scene, a local speech pipeline, and a brain that answers from free cloud
+models **or** a fully offline model on the NPU.
 
 No kernel hacks. It runs on a stock Linux kernel with a kiosk compositor, and the
-Python daemon does all the thinking.
+Python daemon does all the thinking. The same HUD still runs in any WebXR
+browser, including a stock Meta Quest 3 in passthrough - handy while the glasses
+are on the bench.
+
+Hardware: **[docs/HARDWARE-BOM.md](docs/HARDWARE-BOM.md)** - 42 parts, prices,
+links and order dates.
 
 ---
 
@@ -16,26 +26,48 @@ Python daemon does all the thinking.
 
 | Area | Status |
 |---|---|
-| Mic → silence detection → Groq Whisper STT (local fallback) | ✅ |
-| Spoken acknowledgements (CC BY-NC voice pack) | ✅ |
-| HUD shell: panels, telemetry, log, arc-reactor orb | ✅ |
-| Three.js workshop scene (bike, car, quantum core, nebula) | ✅ |
-| WebXR / Meta Quest 3 (AR passthrough, hit-test, anchors, hand tracking) | ✅ |
-| Quest USB link over `adb reverse` (no certificate warning) | ✅ |
-| Typed command box (reliable fallback for voice) | ✅ |
-| Brain with 5-tier fallback chain (Groq chat first) | ✅ |
-| Local mode: Ollama brain + local Whisper + local TTS, 100% offline | ✅ |
-| Live conversation (click once, auto-resumes listening) + live vision | ✅ |
-| Conversational PC control: apps, files, windows, browser tabs | ✅ |
-| Dynamic Island popup bubble (separate always-on-top process) | ✅ |
-| Live search answers (DuckDuckGo lite, spoken, not just a web page) | ✅ |
-| EDITH-style AR console panel (transcript, state, pinned surface) | ✅ |
-| Phone panel + GlobalFone adapter (OS dialer fallback) | ✅ |
-| MCP server (`jarvis-workshop`, 17 tools) | ✅ |
-| Bootable ISO + GRUB + DRM compositor | 🧪 experimental |
-| Wake word, gestures, installer | ⬜ planned |
+| Mic → silence detection → Groq Whisper STT (local fallback) | working |
+| Spoken acknowledgements (CC BY-NC voice pack) | working |
+| HUD shell: panels, telemetry, log, arc-reactor orb | working |
+| Three.js workshop scene (bike, car, quantum core, nebula) | working |
+| WebXR HUD: my glasses build, or a Quest 3 in passthrough for bench tests | working |
+| Quest USB link over `adb reverse` (no certificate warning) | working |
+| Typed command box (reliable fallback for voice) | working |
+| Brain with 5-tier fallback chain (Groq chat first) | working |
+| Local mode: Ollama brain + local Whisper + local TTS, 100% offline | working |
+| Live conversation (click once, auto-resumes listening) + live vision | working |
+| Conversational PC control: apps, files, windows, browser tabs | working |
+| Dynamic Island popup bubble (separate always-on-top process) | working |
+| Live search answers (DuckDuckGo lite, spoken, not just a web page) | working |
+| EDITH-style AR console panel (transcript, state, pinned surface) | working |
+| Phone panel + GlobalFone adapter (OS dialer fallback) | working |
+| MCP server (`jarvis-workshop`, 17 tools) | working |
+| Bootable ISO + GRUB + DRM compositor | experimental |
+| Wake word, gestures, installer | planned |
 
 Full roadmap: [`docs/JARVIS-OS-STAGES.md`](docs/JARVIS-OS-STAGES.md).
+
+## Hardware: my own glasses build
+
+Not a headset mod. A 4K60 camera and an RK3576 board with a 6 TOPS NPU inside a
+PETG frame, charged through pogo pins, audio sent to normal earbuds over
+Bluetooth.
+
+| Item | Value |
+|---|---|
+| Video | 4K60 locked (Arducam IMX415, 12.3 MP, M12 lens) |
+| Compute | Firefly CAM-3576Q38, RK3576, 6 TOPS NPU, 4 GB RAM, 64 GB eMMC |
+| On-device models | Llama 1B, Whisper, YOLO |
+| Sensors | BNO085 IMU, PN532 NFC, BH1750 light, VL53L0X ToF, 2x INMP441 mic |
+| Audio | Bluetooth 5.0 transmitter to your own earbuds |
+| Battery | 2x 2500 mAh LiPo, one per temple, ~8 h |
+| Board size | 38x38 mm, fits a normal temple |
+| Weight | ~91 g |
+| Frame | PETG matte black, 32 mm bridge, curved temples |
+| Cost | ₹25,454 parts + buffer = ₹50,000 |
+
+Full bill of materials with prices, seller links and an order schedule:
+[`docs/HARDWARE-BOM.md`](docs/HARDWARE-BOM.md) (42 parts).
 
 ---
 
@@ -136,7 +168,7 @@ test-only - nothing it does changes your settings or saves audio.
 `GET /api/command` returns `engine` and `elapsed_ms` next to the reply, so the
 HUD can always show which model answered.
 
-### Headset (Meta Quest 3)
+### Headset (alternate runtime: Meta Quest 3)
 
 Standalone browsers only allow WebXR over HTTPS. Use the VR launcher, accept the
 self-signed certificate once, then open `https://<your-lan-ip>:8765/`:
